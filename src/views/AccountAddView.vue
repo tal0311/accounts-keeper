@@ -1,11 +1,11 @@
 <template>
 
-    <section class="add-edit-view grid">
+    <section v-if="account" class="add-edit-view grid">
 
         <h2>{{ id ? 'Update Account' : 'Add Account' }}</h2>
 
 
-        <form v-if="account" @submit.stop="" class="">
+        <form  @submit.stop="" class="">
 
             <div class="fields-container grid">
 
@@ -77,7 +77,9 @@
             </div>
 
         </section>
-    </section>
+    </section> 
+
+    <AppLoader v-else type="edit"/>
 
 </template>
 
@@ -88,13 +90,14 @@ import { useRoute } from 'vue-router'
 import { accountService } from '@/services/item.service'
 import { eventBus, showSuccessMsg } from '@/services/event-bus.service'
 import { utilService } from '@/services/util.service'
+import AppLoader from '@/components/AppLoader.vue'
 
 
 const route = useRoute()
 
 const id = ref(route.params.id)
 
-const isGenOpen = ref(true)
+const isGenOpen = ref(false)
 
 let account = ref(null)
 

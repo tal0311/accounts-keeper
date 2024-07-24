@@ -2,7 +2,7 @@
     <section class="account-view">
 
         <AccountList v-if="accounts" :accounts="accounts" @removeAccount="remove" />
-        <AppLoader v-else v-for="i in  5"  :key="i"/>
+        <AppLoader v-else v-for="i in  5"  :key="i" type="list"/>
 
     </section>
 </template>

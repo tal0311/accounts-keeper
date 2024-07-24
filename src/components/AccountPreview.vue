@@ -8,7 +8,7 @@
             <RouterLink class="primary-btn" :to="{ name: 'account-add-edit', params: { id: props.account._id } }">
                 Edit
             </RouterLink>
-            <button class="primary-btn" @click.stop="$emit('removeAccount', props.account._id)">Delete Account</button>
+            <button class="primary-btn" @click.stop="removeAccount">Delete Account</button>
         </section>
         <AccountDetails :accountId="props.account._id" v-if="isOpen" />
     </article>
@@ -19,7 +19,7 @@
 import { ref, computed } from 'vue'
 import AccountDetails from './icons/AccountDetails.vue';
 
-defineEmits(['removeAccount'])
+const emit = defineEmits(['removeAccount'])
 
 const isOpen = ref(false)
 
@@ -28,13 +28,24 @@ const props = defineProps({
 })
 
 const getIcon = computed(() => {
-
+    
     return `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${props.account.icon.toLowerCase()}.svg`
-
 })
 
+
+
 function getDefaultImg(e) {
-    e.target.src = 'https://via.placeholder.com/400'
+
+    // open a new tab with the icon options
+    e.target.src = 'https://res.cloudinary.com/tal-amit-dev/image/upload/v1721847204/accounts-keeper/default-account_tkg5yi.png'
+}
+
+
+
+function removeAccount() {
+    const isConfirmed = confirm('Are you sure you want to delete this account?')
+    if (!isConfirmed) return
+    emit('removeAccount', props.account._id)
 }
 
 

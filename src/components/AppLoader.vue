@@ -1,5 +1,5 @@
 <template>
-    <article class="account-preview grid skeleton-loader">
+    <article v-if="props.type === 'list'" class="account-preview grid skeleton-loader">
         <div class="skeleton skeleton-title"></div>
         <div class="skeleton skeleton-text"></div>
         <div class="skeleton skeleton-text"></div>
@@ -10,10 +10,46 @@
         </section>
     </article>
 
+    <div v-if="props.type === 'edit'" class="form-skeleton">
+        <div class="skeleton skeleton-heading"></div>
+        <div class="skeleton skeleton-label"></div>
+        <div class="skeleton skeleton-input"></div>
+        <div class="skeleton skeleton-input"></div>
+        <div class="skeleton skeleton-label"></div>
+        <div class="skeleton skeleton-input"></div>
+        <div class="skeleton skeleton-label"></div>
+        <div class="skeleton skeleton-input"></div>
+        <div class="skeleton skeleton-label"></div>
+        <div class="skeleton skeleton-input"></div>
+        <div class="skeleton skeleton-table">
+            <div class="skeleton skeleton-table-heading"></div>
+            <div class="skeleton skeleton-table-heading"></div>
+            <div class="skeleton skeleton-table-heading"></div>
+            <div class="skeleton skeleton-table-cell"></div>
+            <div class="skeleton skeleton-table-cell"></div>
+            <div class="skeleton skeleton-table-cell"></div>
+        </div>
+        <div class="grid grid-dir-cols">
+            <div class="skeleton skeleton-button"></div>
+            <div class="skeleton skeleton-button"></div>
+        </div>
+    </div>
+
+
 </template>
 
 
-<script setup></script>
+<script setup>
+
+const props = defineProps({
+    type: {
+        type: String,
+        default: 'list'
+
+    }
+})
+
+</script>
 
 <style scoped>
 .account-preview {
@@ -46,7 +82,13 @@
 }
 
 /* Skeleton Loader Styles */
+
+.form-skeleton {
+    margin-top: 2rem;
+}
+
 .skeleton-loader .skeleton {
+
     background: #ccc;
     border-radius: 4px;
     animation: shimmer 1.5s infinite linear;
@@ -75,6 +117,66 @@
 .skeleton-button {
     width: 100px;
     height: 2rem;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+
+/* form skeleton */
+
+.form-skeleton {
+    display: grid;
+    gap: 1rem;
+}
+
+.skeleton {
+    background: #ccc;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.skeleton-heading {
+    height: 2rem;
+    width: 30%;
+}
+
+.skeleton-label {
+    height: 1rem;
+    width: 20%;
+}
+
+.skeleton-input {
+    height: 2rem;
+    width: 100%;
+}
+
+.skeleton-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.skeleton-table-heading {
+    height: 1.5rem;
+    width: 100%;
+}
+
+.skeleton-table-cell {
+    height: 2rem;
+    width: 100%;
+}
+
+.skeleton-button {
+    height: 2rem;
+    width: 50%;
 }
 
 @keyframes shimmer {
