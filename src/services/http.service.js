@@ -3,7 +3,8 @@ import Axios from 'axios'
 console.log(import.meta.env);
 
 
-const BASE_URL = import.meta.env.VITE_SERVER_URL + '/api/'
+
+const BASE_URL = (import.meta.env.MODE === 'development')? '//localhost:3030/api/' : '/api/' 
 
 var axios = Axios.create({
   withCredentials: true
