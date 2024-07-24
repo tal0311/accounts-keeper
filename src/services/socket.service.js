@@ -1,12 +1,13 @@
 import io from 'socket.io-client'
 import { userService } from './user.service'
 
+
 export const ON_TYPES ='account-types'
 
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
-const baseUrl = process.env.NODE_ENV === 'production' ? '' : '//localhost:3030'
+const baseUrl = import.meta.env.VITE_SERVER_URL
 export const socketService = createSocketService()
 // export const socketService = createDummySocketService()
 

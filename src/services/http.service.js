@@ -3,7 +3,7 @@ import Axios from 'axios'
 console.log(import.meta.env);
 
 
-const BASE_URL = import.meta.env.VITE_SERVER_URL
+const BASE_URL = import.meta.env.VITE_SERVER_URL + '/api/'
 
 var axios = Axios.create({
   withCredentials: true
