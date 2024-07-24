@@ -1,0 +1,211 @@
+[
+  {
+    "accountTitle": "Gmail",
+    "type": "mail",
+    "icon": "'''",
+    "history": [
+      {
+        "id": "h-101",
+        "type": "update-password",
+        "propertyUpdated": "password",
+        "createdAt": 154623540,
+        "details": "Changed password for security reasons"
+      }
+    ],
+    "username": "user@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235420,
+    "notes": "This is my primary Gmail account."
+  },
+  {
+    "accountTitle": "Facebook",
+    "type": "social",
+    "icon": "facebook",
+    "history": [
+      {
+        "id": "h-102",
+        "type": "create-password",
+        "propertyUpdated": "password",
+        "otherField": "",
+        "createdAt": 1625235421,
+        "details": "Created account and set initial password"
+      }
+    ],
+    "username": "user1@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235421,
+    "notes": "My personal Facebook account."
+  },
+  {
+    "accountTitle": "Twitter",
+    "type": "social",
+    "icon": "twitter",
+    "history": [
+      {
+        "id": "h-103",
+        "type": "update-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235422,
+        "details": "Changed password due to security breach"
+      }
+    ],
+    "username": "user2@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235422,
+    "notes": "Twitter account for following tech news."
+  },
+  {
+    "accountTitle": "Instagram",
+    "type": "social",
+    "icon": "instagram",
+    "history": [
+      {
+        "id": "h-104",
+        "type": "create-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235423,
+        "details": "Created account and set initial password"
+      }
+    ],
+    "username": "user3@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235423,
+    "notes": "Instagram account for sharing photos."
+  },
+  {
+    "accountTitle": "LinkedIn",
+    "type": "social",
+    "icon": "linkedin",
+    "history": [
+      {
+        "id": "h-105",
+        "type": "update-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235424,
+        "details": "Changed password due to suspicious activity"
+      }
+    ],
+    "username": "user4@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235424,
+    "notes": "Professional LinkedIn account."
+  },
+  {
+    "accountTitle": "Pinterest",
+    "type": "social",
+    "icon": "pinterest",
+    "history": [
+      {
+        "id": "h-106",
+        "type": "create-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235425,
+        "details": "Created account and set initial password"
+      }
+    ],
+    "username": "user5@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235425,
+    "notes": "Pinterest account for collecting ideas."
+  },
+  {
+    "accountTitle": "Reddit",
+    "type": "social",
+    "icon": "reddit",
+    "history": [
+      {
+        "id": "h-107",
+        "type": "update-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235426,
+        "details": "Changed password for security reasons"
+      }
+    ],
+    "username": "user6@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235426,
+    "notes": "Reddit account for following discussions."
+  },
+  {
+    "accountTitle": "Snapchat",
+    "type": "social",
+    "icon": "snapchat",
+    "history": [
+      {
+        "id": "h-108",
+        "type": "create-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235427,
+        "details": "Created account and set initial password"
+      }
+    ],
+    "username": "user7@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "lastAccessed": 1625235427,
+    "notes": "Snapchat account for messaging."
+  },
+  {
+    "accountTitle": "TikTok",
+    "type": "social",
+    "icon": "tiktok",
+    "history": [
+      {
+        "id": "h-109",
+        "type": "update-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235428,
+        "details": "Changed password after account recovery"
+      }
+    ],
+    "username": "user8@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235428,
+    "notes": "TikTok account for video content."
+  },
+  {
+    "accountTitle": "WhatsApp",
+    "type": "messaging",
+    "icon": "whatsapp",
+    "history": [
+      {
+        "id": "h-110",
+        "type": "create-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235429,
+        "details": "Created account and set initial password"
+      }
+    ],
+    "username": "user9@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "otherField": "",
+    "lastAccessed": 1625235429,
+    "notes": "WhatsApp account for messaging."
+  },
+  {
+    "accountTitle": "Telegram",
+    "type": "messaging",
+    "icon": "telegram",
+    "history": [
+      {
+        "id": "h-111",
+        "type": "update-password",
+        "propertyUpdated": "password",
+        "createdAt": 1625235430,
+        "details": "Changed password after account update"
+      }
+    ],
+    "username": "user10@example.com",
+    "passwordHash": "$2b$10$WZ...hashedpassword...",
+    "lastAccessed": 1625235430,
+    "otherField": "",
+    "notes": "Telegram account for secure messaging."
+  }
+]

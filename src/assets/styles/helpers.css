@@ -1,0 +1,61 @@
+/* flex helpers */
+
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+
+/* list helpers  */
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* grid helpers */
+
+.grid {
+    display: grid;
+}
+
+.grid-dir-cols {
+    grid-auto-flow: column;
+}
+
+.grid-dir-rows {
+    grid-auto-flow: row;
+}
+
+/* icons helpers */
+
+button.icon {
+    all:unset;
+    cursor: pointer;
+    :hover {
+        color: var(--clr1);
+    }
+
+
+}
+
+:is(button,a).primary-btn{
+    display: grid;
+    place-items: center;
+    background: none;
+    border: 1px solid var(--clr1);
+    border-radius: var(--br);
+
+    &:hover {
+        background-color: var(--clr2);
+        color: var(--base);
+    }
+}
