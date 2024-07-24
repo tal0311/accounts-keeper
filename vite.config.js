@@ -10,7 +10,13 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  base: '/accounts-keeper/',
+  base: '/',
+  build: {
+    outDir: '../backend/public',
+    emptyOutDir: true,
+    
+  },
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
