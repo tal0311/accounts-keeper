@@ -7,7 +7,7 @@ export const ON_TYPES ='account-types'
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
-const baseUrl = import.meta.env.VITE_SOCKET_URL
+const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 export const socketService = createSocketService()
 // export const socketService = createDummySocketService()
 
