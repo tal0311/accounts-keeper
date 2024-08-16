@@ -29,7 +29,7 @@ function _createNewError(err) {
   return {
     _id: $utils.makeId(),
     desc: `[Error handler ${err}]`,
-    user: userService.getloggedInUser()
+    user: userService.getLoggedInUser()
   }
 }
 

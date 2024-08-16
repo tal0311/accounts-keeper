@@ -1,7 +1,6 @@
 <template>
-    <footer class="app-footer">
-        <button @click="mainAction" v-html="$svg(btnText)">
-
+    <footer :class="`app-footer ${btnText}`">
+        <button @click="mainAction" v-html="$svg(btnText)" aria-label="Main Action Button" :title="btnText">
         </button>
     </footer>
 </template>
@@ -75,21 +74,67 @@ function mainAction() {
 
 <style scoped>
 .app-footer {
+    --start: #67C23A;
+    --add: #409EFF;
+    --copy: #E6A23C;
+    --login: #F56C6C;
+
     position: fixed;
     bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #333;
+    background-color: #fff;
     color: white;
     padding: 0.5rem;
     display: flex;
     justify-content: center;
     border-radius: var(--br);
 
-    button {
-        width: 100%;
-        padding: 0.5rem;
-        height: 100%;
+    &.start {
+        outline: 1px solid var(--start);
+
+        button {
+            background-color: var(--start);
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--br);
+
+        }
+
+    }
+
+    &.add {
+        outline: 1px solid var(--add);
+
+        button {
+            background-color: var(--add);
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--br);
+        }
+    }
+
+    &.copy {
+        outline: 1px solid var(--copy);
+
+        button {
+            background-color: var(--copy);
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--br);
+        }
+    }
+
+
+    &.login {
+        outline: 1px solid var(--login);
+
+        button {
+            background-color: var(--login);
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--br);
+        }
     }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <header v-if="isFilterDisplayed" class="app-header">
+    <header v-if="isFilterDisplayed" class="app-header" >
         <section class="filter grid">
 
             <form @submit.prevent="onSearch">
@@ -11,7 +11,9 @@
 
             <section class="type-filter grid grid-dir-cols">
                 <button v-for="btn, idx in btns" :key="btn.name"
-                    :class="[btn.isSelected ? 'selected' : '', 'primary-btn']" @click="onSelect(idx)">
+                    :class="[btn.isSelected ? 'selected' : '', 'primary-btn']"
+                
+                    @click="onSelect(idx)">
                     <span> {{ btn.name }}</span>
                     <span> ({{ btn.count }})</span>
                 </button>
@@ -30,22 +32,25 @@ import { useAccountStore } from '@/stores/accountStore';
 import { socketService, ON_TYPES } from '@/services/socket.service';
 
 const accountStore = useAccountStore()
-
 const route = useRoute()
 
+const btns = ref(null)
 onBeforeMount(() => {
 
     socketService.on(ON_TYPES, (types) => {
+        console.log('types', types);
+        
         types = Object.entries(types).map(([key, value]) => {
             return { name: key, isSelected: false, count: value }
         })
-        btns.value = types
+        btns.value = [...types]
         btns.value.unshift({ name: 'all', isSelected: true, count: types.length })
     })
 
 })
 
-const btns = ref(null)
+
+
 
 // to keep track of the selected button
 watchEffect(() => {
@@ -56,6 +61,7 @@ watchEffect(() => {
     }
 
 })
+
 
 
 

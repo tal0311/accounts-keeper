@@ -8,14 +8,14 @@ export const userService = {
   save,
   removeUser,
   login,
-  getloggedInUser,
+  getLoggedInUser,
   signup
 }
 
 // createUsers()
 window.userService = userService
 
-function getloggedInUser() {
+function getLoggedInUser() {
   let user = utilService.loadFromStorage(LOGGED_USER)
   return user
 }

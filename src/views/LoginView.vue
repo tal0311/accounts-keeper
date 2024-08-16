@@ -52,7 +52,7 @@ height: calc(100vh - 10rem);
 
 form {
 
-    box-shadow: 0 0 10px 0 #ccc;
+    box-shadow: 0 0 10px 0 var(--clr1);
     gap: 1rem;
     padding: 3rem 1.5rem;
     /* background-color: var(--clr2); */
@@ -64,7 +64,7 @@ form {
     input {
         padding: 0.5rem;
         border-radius: 0.2rem;
-        border: 1px solid #ccc;
+        border: 1px solid var(--clr1);
     }
    
 

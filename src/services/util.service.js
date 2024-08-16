@@ -146,10 +146,10 @@ const debounce = (func, wait) => {
   }
 }
 
-function setConsoleData(isCode, isLI, isColab) {
+function setConsoleData(isCode, isLI) {
   var strOps = {
-    isCode: 'https://github.com/tal0311/google-apps',
-    isLI: 'Contact me At https://www.linkedin.com/in/tal-amit/'
+    isCode: isCode,
+    isLI:isLI|| 'Contact me At https://www.linkedin.com/in/tal-amit/'
   }
   console.log(
     `%c ${strOps['isCode']} \n ${strOps['isLI']}`,
@@ -193,13 +193,22 @@ function _getWindowOptionsString(options) {
 
 function getAsCSV(items) {
   const [h1, h2, h3, h4, h5] = Object.keys(items[0])
-  let csvStr = `${h2},${h3},${h4}`
+  let csvStr = `${h1}, ${h2},${h3},${h4}, ${h5}`
   items.forEach(({ name, icon, group }) => {
     const csvLine = `\n${name},${icon},${group}`
     csvStr += csvLine
   })
 
   return csvStr
+}
+
+function getRandomPastelColor() {
+  const randomColor = () => Math.floor(Math.random() * 128 + 127); // Restrict to lighter shades
+  const red = randomColor();
+  const green = randomColor();
+  const blue = randomColor();
+
+  return `rgb(${red}, ${green}, ${blue})`;
 }
 
 export const utilService = {
@@ -219,7 +228,9 @@ export const utilService = {
   isMobile,
   getImg,
   getDomainName,
-  openPopUp
+  openPopUp,
+  getRandomPastelColor,
+  getAsCSV
 }
 
 window.$utils = utilService

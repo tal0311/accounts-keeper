@@ -7,7 +7,7 @@ export const ON_TYPES ='account-types'
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
-const baseUrl = (process.env.NODE_ENV !== 'development') ? '/' : '//localhost:3030'
+const baseUrl = import.meta.env.VITE_SOCKET_URL
 export const socketService = createSocketService()
 // export const socketService = createDummySocketService()
 
@@ -22,7 +22,7 @@ function createSocketService() {
     setup() {
       socket = io(baseUrl)
       setTimeout(() => {
-        const user = userService.getloggedInUser()
+        const user = userService.getLoggedInUser()
         if (user) this.login(user._id)
       }, 500)
     },
