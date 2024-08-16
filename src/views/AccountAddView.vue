@@ -85,7 +85,7 @@
 
 <script setup>
 import { ref, onBeforeMount, watchEffect } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute , useRouter} from 'vue-router'
 // import { accountService } from '@/services/item.service.local'
 import { accountService } from '@/services/item.service'
 import { eventBus, showSuccessMsg } from '@/services/event-bus.service'
@@ -94,6 +94,7 @@ import AppLoader from '@/components/AppLoader.vue'
 
 
 const route = useRoute()
+const router = useRouter()
 
 const id = ref(route.params.id)
 
@@ -170,14 +171,10 @@ onBeforeMount(async () => {
 
     eventBus.on('main-action', async (btnState) => {
         if (btnState === 'save') {
-            // accountService.save(account.value)
-
-
             createAccountHistory()
-            
-
             await accountService.save(account.value)
             showSuccessMsg('Account updated successfully')
+            router.push('/account')
 
         }
 
