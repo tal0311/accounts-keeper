@@ -5,12 +5,18 @@
         <p>{{ props.account.notes || 'No Notes Added' }}</p>
         <img :src="getIcon" width="100" height="100" :alt="props.account.accountTitle" @error="getDefaultImg">
         <section class="actions-container grid grid-dir-cols">
-            <RouterLink class="primary-btn" :to="{ name: 'account-add-edit', params: { id: props.account._id } }">
+            <RouterLink class="primary-btn" @click.stop=""
+                :to="{ name: 'account-add-edit', params: { id: props.account._id } }">
                 Edit
             </RouterLink>
             <button class="primary-btn" @click.stop="removeAccount">Delete Account</button>
         </section>
-        <AccountDetails :accountId="props.account._id" v-if="isOpen" />
+        <section>
+            <AccountDetails v-if="isOpen" :accountId="props.account._id" />
+        </section>
+        <span class="msg-container">{{ isOpen ? 'Click To Hide credentials' : 'Click to see Account credentials'
+            }}</span>
+
     </article>
 
 </template>
@@ -28,15 +34,13 @@ const props = defineProps({
 })
 
 const getIcon = computed(() => {
-    
+
     return `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${props.account.icon.toLowerCase()}.svg`
 })
 
 
 
 function getDefaultImg(e) {
-
-    // open a new tab with the icon options
     e.target.src = 'https://res.cloudinary.com/tal-amit-dev/image/upload/v1721847204/accounts-keeper/default-account_tkg5yi.png'
 }
 
@@ -69,6 +73,14 @@ function removeAccount() {
         right: 1rem;
         top: 1rem;
         width: min-content;
+    }
+
+    .msg-container {
+        grid-column: 1/-1;
+        background: lightgrey;
+        padding: 0.2rem;
+        display: grid;
+        place-content: center;
     }
 
 }

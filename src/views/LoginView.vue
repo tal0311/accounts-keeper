@@ -1,41 +1,98 @@
 <template>
-    <section class="login-container">
-        <h1>Login</h1>
-        <form @submit.prevent="login">
+    <section class="login-container grid">
+        <form @submit.prevent="login" class="grid">
+            <h1>{{ isLogIng ? 'Just a second' :'Login' }}</h1>
             <input type="text" v-model="credentials.username" placeholder="Username" />
             <input type="password" v-model="credentials.password" placeholder="Password" />
-            <button>Login</button>
         </form>
     </section>
 </template>
 
 <script setup>
 
-import { ref } from 'vue'
+import { onBeforeMount, ref, onBeforeUnmount } from 'vue'
 import { useUserStore } from '@/stores/userStore';
 import { useRouter } from 'vue-router'
+import { eventBus } from '@/services/event-bus.service';
 
-const credentials = ref({ username: 'tal0311', password: '1234' })
+const credentials = ref({ username: '', password: '' })
 const userStore = useUserStore()
 
-// {
-//   "imgUrl":"https://res.cloudinary.com/tal-amit-dev/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1679773600/Instagram/WhatsApp_Image_2023-03-25_at_22.42.55_gh0eyd.jpg",
-//   "username":"tal0311",
-//   "fullname":"Tal Amit",
-//   "password":"1234",
-//   "email":"tal.amit0311@gmail.com"
-// }
+
+let sub = null
+const isLogIng = ref(false) 
+
+onBeforeMount(() => {
+    sub = eventBus.on('login', login)
+})
 
 const router = useRouter()
 
 async function login() {
+    isLogIng.value = true
 
     await userStore.login(credentials.value)
-
+    isLogIng.value = false
     router.push('/account')
 }
+
+onBeforeUnmount(() => {
+    sub()
+})
+
 
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.login-container {
+/* background-color: var(--clr1); */
+place-content: center;
+height: calc(100vh - 10rem);
+
+
+form {
+
+    box-shadow: 0 0 10px 0 #ccc;
+    gap: 1rem;
+    padding: 3rem 1.5rem;
+    /* background-color: var(--clr2); */
+    border-radius: 0.5rem;
+    place-content: center;
+    h1 {
+        text-align: center;
+    }
+    input {
+        padding: 0.5rem;
+        border-radius: 0.2rem;
+        border: 1px solid #ccc;
+    }
+   
+
+}
+
+
+
+    /* background: #e8e8e8;
+    position: fixed;
+    display: grid;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+    form {
+        display: grid;
+        grid-template-columns: 10px auto 10px;
+
+        gap: 0.5rem;
+
+        &>* {
+            grid-column: 2;
+        
+        }
+
+    } */
+}
+</style>

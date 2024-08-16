@@ -41,6 +41,9 @@ watchEffect(() => {
     if (route.query.id) {
         btnText.value = 'copy'
     }
+    if (route.name === 'login') {
+        btnText.value = 'login'
+    }
 
 })
 
@@ -59,6 +62,9 @@ function mainAction() {
     }
     if (route.name === 'account') {
         router.push({ name: 'account-add-edit' })
+    }
+    if (route.name === 'login') {
+        eventBus.emit('login')
     }
 
 }
