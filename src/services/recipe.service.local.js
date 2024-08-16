@@ -23,7 +23,7 @@ window.recipeService = recipeService;
 async function query(filterBy={group: 'fish'}) {
   const recipes = await storageService.query(RECIPE_KEY);
 
-  const { settings } = userService.getLoggedInUser();
+  const { settings } = userService.getloggedInUser();
   console.log('settings', settings.lang);
 
   return recipes.map(recipe => {

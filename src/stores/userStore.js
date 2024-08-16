@@ -7,7 +7,7 @@ export const useUserStore = defineStore('user', () => {
   const loggedUser = ref(null)
 
   function loadUser() {
-    loggedUser.value = userService.getLoggedInUser()
+    loggedUser.value = userService.getloggedInUser()
     if (loggedUser.value) {
       socketService.setup()
       return
@@ -15,7 +15,7 @@ export const useUserStore = defineStore('user', () => {
     // console.log('loggedUser:', loggedUser.value)
   }
 
-  const getLoggedInUser = computed(() => {
+  const getloggedInUser = computed(() => {
     return loggedUser?.value
   })
 
@@ -24,5 +24,5 @@ export const useUserStore = defineStore('user', () => {
     return loggedUser.value
   }
 
-  return { getLoggedInUser, login, loadUser }
+  return { getloggedInUser, login, loadUser }
 })

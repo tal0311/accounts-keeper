@@ -25,7 +25,7 @@ const router = useRouter()
 onBeforeMount(() => {
   userStore.loadUser()
 
-  const user = computed(() => userStore.getLoggedInUser).value
+  const user = computed(() => userStore.getloggedInUser).value
 
   if (!user) router.push('/login')
 })

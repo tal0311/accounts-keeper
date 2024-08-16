@@ -21,7 +21,7 @@ window.listService = listService;
 
 _createLists()
 async function query(filterBy = {}) {
-  const loggedUser = userService.getLoggedInUser();
+  const loggedUser = userService.getloggedInUser();
   let lists = await storageService.query(STORAGE_KEY);
   lists = lists.filter(list => list.owner.id === loggedUser._id)
   
@@ -53,7 +53,7 @@ async function save(item) {
 }
 
 function getEmptyList(title = "רשימה חדשה") {
-  const { _id: id, username, imgUrl } =userService.getLoggedInUser() 
+  const { _id: id, username, imgUrl } =userService.getloggedInUser() 
   return {
     
     title,
@@ -85,7 +85,7 @@ function _createLists(title, items) {
 //       ...list,
 //       owner:{
 //         ...list.owner,
-//         id: userService.getLoggedInUser()._id
+//         id: userService.getloggedInUser()._id
 //       }
 //     }
 //   }));

@@ -22,7 +22,7 @@ function createSocketService() {
     setup() {
       socket = io(baseUrl)
       setTimeout(() => {
-        const user = userService.getLoggedInUser()
+        const user = userService.getloggedInUser()
         if (user) this.login(user._id)
       }, 500)
     },
