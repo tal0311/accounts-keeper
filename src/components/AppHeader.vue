@@ -1,24 +1,18 @@
 <template>
-    <header v-if="isFilterDisplayed" class="app-header" >
+    <header v-if="isFilterDisplayed" class="app-header">
         <section class="filter grid">
-
             <form @submit.prevent="onSearch">
-
                 <input type="search" name="txt" placeholder="Find anything" />
                 <button type="submit" class="primary-btn" @submit.prevent="">Search</button>
             </form>
-
-
+            
             <section class="type-filter grid grid-dir-cols">
                 <button v-for="btn, idx in btns" :key="btn.name"
-                    :class="[btn.isSelected ? 'selected' : '', 'primary-btn']"
-                
-                    @click="onSelect(idx)">
+                    :class="[btn.isSelected ? 'selected' : '', 'primary-btn']" @click="onSelect(idx)">
                     <span> {{ btn.name }}</span>
                     <span> ({{ btn.count }})</span>
                 </button>
             </section>
-
         </section>
 
     </header>
@@ -38,28 +32,24 @@ const btns = ref(null)
 onBeforeMount(() => {
 
     socketService.on(ON_TYPES, (types) => {
-        console.log('types', types);
-        
         types = Object.entries(types).map(([key, value]) => {
-            return { name: key, isSelected: false, count: value }
+            return { name: key, isSelected: false, count: value, isLoading: false }
         })
         btns.value = [...types]
         btns.value.unshift({ name: 'all', isSelected: true, count: types.length })
+        
     })
-
+    
 })
 
 
 
-
-// to keep track of the selected button
+// To preserve the All value
 watchEffect(() => {
-
     if (btns.value) {
         socketService.off(ON_TYPES)
-
+       
     }
-
 })
 
 
@@ -67,20 +57,26 @@ watchEffect(() => {
 
 
 const onSelect = (idx) => {
+
     btns.value.forEach((btn, index) => {
-        idx === index ? btn.isSelected = true : btn.isSelected = false
+        if (idx === index) {
+            btn.isSelected = true
+
+        } else {
+            btn.isSelected = false
+
+        }
+
 
     })
+
     accountStore.setFilter('type', btns.value[idx].name)
+
+
 }
 
 function onSearch($event) {
-    console.log('search', $event);
-
     const data = Object.fromEntries(new FormData($event.target))
-
-
-
     accountStore.setFilter('txt', data.txt)
 }
 
@@ -120,7 +116,7 @@ form {
 
 .type-filter {
     min-height: 1rem;
-    
+
     width: min-content;
     gap: 1rem;
 
@@ -134,7 +130,8 @@ form {
         }
 
         &.selected {
-            opacity:0.5;
+            opacity: 0.5;
+            
         }
     }
 }

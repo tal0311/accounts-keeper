@@ -32,7 +32,7 @@ async function login() {
 
     await userStore.login(credentials.value)
     isLogIng.value = false
-    router.push('/account')
+    router.push('/')
 }
 
 onBeforeUnmount(() => {
