@@ -78,6 +78,7 @@ function mainAction() {
     --add: #409EFF;
     --copy: #E6A23C;
     --login: #F56C6C;
+    --save: #E6A23C;
 
     position: fixed;
     bottom: 3rem;
@@ -131,6 +132,17 @@ function mainAction() {
 
         button {
             background-color: var(--login);
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--br);
+        }
+    }
+
+    &.save {
+        outline: 1px solid var(--save);
+
+        button {
+            background-color: var(--save);
             border: none;
             padding: 0.5rem;
             border-radius: var(--br);

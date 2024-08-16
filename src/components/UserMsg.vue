@@ -44,6 +44,11 @@ function closeModal() {
     userMsgRef.value.close()
 }
 
+function onReport() {
+   console.log('Report');
+   
+}
+
 
 
 
