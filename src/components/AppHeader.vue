@@ -117,8 +117,10 @@ form {
 .type-filter {
     min-height: 1rem;
 
-    width: min-content;
-    gap: 1rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 
     button {
         grid-auto-flow: column;

@@ -174,7 +174,7 @@ onBeforeMount(async () => {
 
 
             createAccountHistory()
-            console.log('account', account.value);
+            
 
             await accountService.save(account.value)
             showSuccessMsg('Account updated successfully')
@@ -204,6 +204,7 @@ onBeforeMount(async () => {
 })
 
 function createAccountHistory() {
+    if (!account.value.history) account.value.history = []
     account.value.history.push({
         id: utilService.makeId(),
         createdAt: Date.now(),
